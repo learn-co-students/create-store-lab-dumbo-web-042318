@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import manageUsers from './reducers/manageUsers';
+import { Provider } from 'react-redux';
 import App from './App';
 
 // we wrap store in a function for testing purposes
@@ -10,6 +11,8 @@ export function configureStore(){
 };
 
 ReactDOM.render(
-  <App store={configureStore()} />,
+  <Provider store={configureStore()} >
+    <App store={configureStore()} />
+  </Provider>,
   document.getElementById('root')
 );
